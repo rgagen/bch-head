@@ -1,5 +1,6 @@
 function update() {
     const data = getFormData();
+    console.log(data.initials);
     const dict = stringDict();
     const date = date_string(data);
     updateScannerInfo(date, data, dict);
@@ -8,7 +9,7 @@ function update() {
 
 function date_string(data: Data): string {
     const date = new Date();
-    const date_string = `${data["initials"]} ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}:`;
+    const date_string = `${data.initials} ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}:`;
     return (date_string);
 }
 
@@ -45,7 +46,7 @@ class Data {
 
 function getFormData(): Data {
     let data = new Data();
-    data.initials = document.getElementById("init")!.innerText;
+    data.initials = (document.getElementById("init") as HTMLInputElement)!.value;
     const magnet = document.getElementsByName("magnet");
     for (let radio of magnet as NodeListOf<HTMLInputElement>) {
         if (radio.checked) {
