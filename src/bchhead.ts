@@ -1,7 +1,6 @@
-function update() {
+async function update(): Promise<void> {
     const data = getFormData();
-    console.log(data.initials);
-    const dict = stringDict();
+    const dict = await stringDict();
     const date = date_string(data);
     updateScannerInfo(date, data, dict);
     updateProtocolInfo(date, data, dict);
@@ -13,20 +12,20 @@ function date_string(data: Data): string {
     return (date_string);
 }
 
-function updateScannerInfo(date: string, data: Data, dict: Record<string, string>) {
-    const scanner_info = `${date} ${dict[data["magnet"]]} - `;
+function updateScannerInfo(date: string, data: Data, dict: Map<string, string>) {
+    const scanner_info = `${date} ${dict.get(data.magnet)} - `;
     document.getElementById("scanner_info")!.innerHTML = scanner_info;
 }
 
-function updateProtocolInfo(date: string, data: Data, dict: Record<string, string>) {
-    let brain = `Br: ${dict[data.brain]}`;
+function updateProtocolInfo(date: string, data: Data, dict: Map<string, string>) {
+    let brain = `Br: ${dict.get(data.brain)}`;
     for (let key of data.addBrain) {
-        brain = brain + ` + ${dict[key]}`;
+        brain = brain + ` + ${dict.get(key)}`;
     }
-    let spine = `Sp: ${dict[data.spine]}`;
+    let spine = `Sp: ${dict.get(data.spine)}`;
     let aa = "AA: ";
     for (let key of data.aa) {
-        aa = aa + ` + ${dict[key]}`;
+        aa = aa + ` + ${dict.get(key)}`;
     }
     if (aa.length === 4) {
         aa = aa + " nil";
@@ -45,7 +44,7 @@ class Data {
 }
 
 function getFormData(): Data {
-    let data = new Data();
+    const data = new Data();
     data.initials = (document.getElementById("init") as HTMLInputElement)!.value;
     const magnet = document.getElementsByName("magnet");
     for (let radio of magnet as NodeListOf<HTMLInputElement>) {
@@ -79,30 +78,17 @@ function getFormData(): Data {
     return (data);
 }
 
-function stringDict(): Record<string, string> {
-    const dict: Record<string, string> = {};
-    dict["anyScanner"] = "any scanner";
-    dict["oneT"] = "1.5T only";
-    dict["threeT"] = "3T only";
-    dict["oneTPreference"] = "1.5T > 3T";
-    dict["threeTPreference"] = "3T > 1.5T";
-    dict["standardHead"] = "Brain tumour protocol";
-    dict["midline"] = "Midline tumour protocol";
-    dict["NF1"] = "NF1 protocol";
-    dict["hybrid"] = "Hybrid epilepsy protocol";
-    dict["corT2"] = "cor T2 3mm";
-    dict["ccjCISS"] = "CISS posterior fossa and CCJ";
-    dict["midCISS"] = "midline sag CISS";
-    dict["swi"] = "SWI";
-    dict["standardSpine"] = "Sag T1+C + axials any ROI";
-    dict["t2Spine"] = "Sag T2 + T1+C with axial T2 + T1+C any ROI";
-    dict["noSpine"] = "nill";
-    dict["svs"] = "/- SVS if any clear recurrence";
-    dict["mvs"] = "MVS at level of tumour";
-    dict["dscSup"] = "DSC supratentorial";
-    dict["dscInf"] = "DSC infratentorial";
-    dict["asl"] = "ASL whole head";
-    return (dict);
+async function stringDict(): Promise<Map<string, string>> {
+    const dict = fetch("dictionary.json")
+        .then((res) => res.json())
+        .then((json) => {
+                const dict = new Map<string, string>();
+                for (let key in json) {
+                    dict.set(key, json[key]);
+                }
+                return(dict)
+            })
+    return(dict);
 }
 
 function copyScannerInfo(): void {

@@ -1,0 +1,23 @@
+{
+  "anyScanner": "any scanner",
+  "oneT": "1.5T only",
+  "threeT": "3T only",
+  "oneTPreference": "1.5T > 3T",
+  "threeTPreference": "3T > 1.5T",
+  "standardHead": "Brain tumour protocol",
+  "midline": "Midline tumour protocol",
+  "NF1": "NF1 protocol",
+  "hybrid": "Hybrid epilepsy protocol",
+  "corT2": "cor T2 3mm",
+  "ccjCISS": "CISS posterior fossa and CCJ",
+  "midCISS": "midline sag CISS",
+  "swi": "SWI",
+  "standardSpine": "Sag T1+C + axials any ROI",
+  "t2Spine": "Sag T2 + T1+C with axial T2 + T1+C any ROI",
+  "noSpine": "nill",
+  "svs": "/- SVS if any clear recurrence",
+  "mvs": "MVS at level of tumour",
+  "dscSup": "DSC supratentorial",
+  "dscInf": "DSC infratentorial",
+  "asl": "ASL whole head"
+}
