@@ -55,25 +55,28 @@ function getFormData(): Data {
     }
     const brain = document.getElementsByName("brain");
     for (let radio of brain as NodeListOf<HTMLInputElement>) {
-            if (radio.checked) {
-                data.brain = radio.value;
-                break;
-            }
+        if (radio.checked) {
+            data.brain = radio.value;
+            break;
+        }
     }
     const addBrain = document.getElementsByName("addBrain");
     for (let radio of addBrain as NodeListOf<HTMLInputElement>) {
-        data.addBrain.push(radio.value);
+        if (radio.checked) {
+            data.addBrain.push(radio.value);
+        }
     }
     const spine = document.getElementsByName("spine");
     for (let radio of spine as NodeListOf<HTMLInputElement>) {
         if (radio.checked) {
             data.spine = radio.value;
         }
-        ;
     }
     const aa = document.getElementsByName("aa");
     for (let radio of aa as NodeListOf<HTMLInputElement>) {
-        data.aa.push(radio.value);
+        if (radio.checked) {
+            data.aa.push(radio.value);
+        }
     }
     return (data);
 }
