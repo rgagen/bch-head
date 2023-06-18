@@ -1,1 +1,23 @@
-{}
+{
+  "name": "gagen.io",
+  "version": "1.0.0",
+  "description": "gagen.io website and all associated tools",
+  "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "serve": "^14.2.0",
+    "typescript": "^5.1.3"
+  },
+  "scripts": {
+    "deploy": "tsc && copyfiles -f src/*.html src/*.css src/*.json deploy",
+    "start": "serve deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/rgagen/gagen.io.git"
+  },
+  "author": "Richard Gagen",
+  "bugs": {
+    "url": "https://gitlab.com/rgagen/gagen.io/issues"
+  },
+  "homepage": "https://gagen.io"
+}
