@@ -1,129 +1,146 @@
- <!DOCTYPE html>
- <html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BCH Head - An BCH MR Head Protol Note Creater</title>
+    <link rel="stylesheet" href="bchhead.css" />
+    <script src="bchhead.js"></script>
+  </head>
 
-   <head>
-     <title>BCH Head - An BCH MR Head Protol Note Creater</title>
-	 <link rel="stylesheet" href="bchhead.css">
-	 <script src="bchhead.js"></script> 
-   </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <h1>BCH Head</h1>
+      <h5>A protocol note creater for oncology MR heads performed at BCH</h5>
+    </header>
 
-   <body>
+    <!-- Input -->
+    <div class="input">
+      <form id="initialsForm" name="initialsForm">
+        <p>
+          <label for="init">Initials:</label>
+          <input type="text" id="init" name="initials" /><br />
+        </p>
+      </form>
 
-     <!-- Header -->
-     <div class="header">
-       <h1>BCH Head</h1>
-       <h5>
-         A protocol note creater for oncology MR heads performed at BCH
-       </h5>
-     </div>
+      <form id="protocolForm" name="protocolForm">
+        <p>
+          Magnet: <br />
+          <input
+            type="radio"
+            name="magnet"
+            id="anyScanner"
+            value="anyScanner"
+            checked="checked"
+          />
+          <label for="anyScanner">Any Scanner</label>
+          <input type="radio" name="magnet" id="oneT" value="oneT" />
+          <label for="oneT">1.5T Only</label>
+          <input type="radio" name="magnet" id="threeT" value="threeT" />
+          <label for="threeT">3T Only</label>
+          <input
+            type="radio"
+            name="magnet"
+            id="oneTPreference"
+            value="oneTPreference"
+          />
+          <label for="oneTPreference">1.5T&gt;3T</label>
+          <input
+            type="radio"
+            name="magnet"
+            id="threeTPreference"
+            value="threeTPreference"
+          />
+          <label for="threeTPreference">3T&gt;1.5T</label>
+        </p>
 
-     <!-- Row -->
-     <div class="row">
+        <p>
+          Brain protocol: <br />
+          <input
+            type="radio"
+            name="brain"
+            id="standardHead"
+            value="standardHead"
+            checked="checked"
+          />
+          <label for="standardHead">Brain Tumour</label>
+          <input type="radio" name="brain" id="midline" value="midline" />
+          <label for="midline">Midline</label>
+          <input type="radio" name="brain" id="NF1" value="NF1" />
+          <label for="NF1">NF1/OPG</label>
+          <input type="radio" name="brain" id="hybrid" value="hybrid" />
+          <label for="hybrid">Hybrid Epilepsy</label>
+        </p>
 
-       <!-- Input -->
-       <div class="input">
-         <form id="initialsForm" name="initialsForm">
-           <p>
-             <label for="init">Initials:</label>
-             <input type="text" id="init" name="initials"><br>
-           </p>
-         </form>
+        <p>
+          Additional Brain Sequences: <br />
+          <input type="checkbox" name="addBrain" id="corT2" value="corT2" />
+          <label for="corT2">Coronal T2</label>
+          <input type="checkbox" name="addBrain" id="ccjCISS" value="ccjCISS" />
+          <label for="ccjCISS">CISS CCJ</label>
+          <input type="checkbox" name="addBrain" id="midCISS" value="midCISS" />
+          <label for="midCISS">Midline CISS</label>
+          <input type="checkbox" name="addBrain" id="swi" value="swi" />
+          <label for="swi">SWI</label>
+        </p>
 
-         <form id="protocolForm" name="protocolForm">
-           <p>
-             Magnet: <br>
-             <input type="radio" name="magnet" id="anyScanner" value="anyScanner" checked="checked">
-             <label for="anyScanner">Any Scanner</label>
-             <input type="radio" name="magnet" id="oneT" value="oneT">
-             <label for="oneT">1.5T Only</label>
-             <input type="radio" name="magnet" id="threeT" value="threeT">
-             <label for="threeT">3T Only</label>
-             <input type="radio" name="magnet" id="oneTPreference" value="oneTPreference">
-             <label for="oneTPreference">1.5T&gt;3T</label>
-             <input type="radio" name="magnet" id="threeTPreference" value="threeTPreference">
-             <label for="threeTPreference">3T&gt;1.5T</label>
-           </p>
+        <p>
+          Spine protocol: <br />
+          <input
+            type="radio"
+            name="spine"
+            id="standardSpine"
+            value="standardSpine"
+            checked="checked"
+          />
+          <label for="standardSpine">Standard Spine</label>
+          <input type="radio" name="spine" id="t2Spine" value="t2Spine" />
+          <label for="t2Spine">Standard + T2</label>
+          <input type="radio" name="spine" id="noSpine" value="noSpine" />
+          <label for="noSpine">No Spine</label>
+        </p>
 
-           <p>
-             Brain protocol: <br>
-             <input type="radio" name="brain" id="standardHead" value="standardHead" checked="checked">
-             <label for="standardHead">Brain Tumour</label>
-             <input type="radio" name="brain" id="midline" value="midline">
-             <label for="midline">Midline</label>
-             <input type="radio" name="brain" id="NF1" value="NF1">
-             <label for="NF1">NF1/OPG</label>
-             <input type="radio" name="brain" id="hybrid" value="hybrid">
-             <label for="hybrid">Hybrid Epilepsy</label>
-           </p>
+        <p>
+          Advanced Imaging: <br />
+          <input
+            type="checkbox"
+            name="aa"
+            id="svs"
+            value="svs"
+            checked="checked"
+          />
+          <label for="svs">SVS</label>
+          <input type="checkbox" name="aa" id="mvs" value="mvs" />
+          <label for="mvs">MVS</label>
+          <input type="checkbox" name="aa" id="dscSup" value="dscSup" />
+          <label for="dscSup">DSC Supratentorial</label>
+          <input type="checkbox" name="aa" id="dscInf" value="dscInf" />
+          <label for="dscInf">DSC Infratentorial</label>
+          <input type="checkbox" name="aa" id="asl" value="asl" />
+          <label for="asl">ASL</label>
+        </p>
 
-           <p>
-             Additional Brain Sequences: <br>
-             <input type="checkbox" name="addBrain" id="corT2" value="corT2">
-             <label for="corT2">Coronal T2</label>
-             <input type="checkbox" name="addBrain" id="ccjCISS" value="ccjCISS">
-             <label for="ccjCISS">CISS CCJ</label>
-             <input type="checkbox" name="addBrain" id="midCISS" value="midCISS">
-             <label for="midCISS">Midline CISS</label>
-             <input type="checkbox" name="addBrain" id="swi" value="swi">
-             <label for="swi">SWI</label>
-           </p>
+        <button type="button" onclick="update()">Submit</button>
+        <input type="reset" />
+      </form>
+    </div>
 
-           <p>
-             Spine protocol: <br>
-             <input type="radio" name="spine" id="standardSpine" value="standardSpine" checked="checked">
-             <label for="standardSpine">Standard Spine</label>
-             <input type="radio" name="spine" id="t2Spine" value="t2Spine">
-             <label for="t2Spine">Standard + T2</label>
-             <input type="radio" name="spine" id="noSpine" value="noSpine">
-             <label for="noSpine">No Spine</label>
-           </p>
-
-           <p>
-             Advanced Imaging: <br>
-             <input type="checkbox" name="aa" id="svs" value="svs" checked="checked">
-             <label for="svs">SVS</label>
-             <input type="checkbox" name="aa" id="mvs" value="mvs">
-             <label for="mvs">MVS</label>
-             <input type="checkbox" name="aa" id="dscSup" value="dscSup">
-             <label for="dscSup">DSC Supratentorial</label>
-             <input type="checkbox" name="aa" id="dscInf" value="dscInf">
-             <label for="dscInf">DSC Infratentorial</label>
-             <input type="checkbox" name="aa" id="asl" value="asl">
-             <label for="asl">ASL</label>
-           </p>
-
-           <button type="button" onclick="update()">Submit</button>
-           <input type="reset">
-
-         </form>
-       </div>
-
-       <!-- Output -->
-       <div class="output">
-         <p>
-
-           <textarea name="scanner_info" id="scanner_info" rows="2" cols="60">
+    <!-- Output -->
+    <div class="output">
+      <p>
+        <textarea name="scanner_info" id="scanner_info" autocorrect="off" rows="2" cols="50">
         </textarea>
-           <br>
-           <button type="button" onclick="copyScannerInfo()">Copy Text</button>
-         </p>
+        <br />
+        <button type="button" onclick="copyScannerInfo()">Copy Text</button>
+      </p>
 
-         <p>
-           <textarea name="protocol" id="protocol" rows="10" cols="60">
-        </textarea>
-           <br>
-           <button type="button" onclick="copyProtocolInfo()">Copy Text</button>
-         </p>
+      <p>
+        <textarea name="protocol" id="protocol" autocorrect="off" rows="15" cols="50"> </textarea>
+        <br />
+        <button type="button" onclick="copyProtocolInfo()">Copy Text</button>
+      </p>
+    </div>
 
-       </div>
-
-     </div>
-
-     <!-- Footer -->
-     <div class="footer">
-       &copy; R Gagen 2023
-     </div>
-
-   </body>
-
- </html>
+    <!-- Footer -->
+    <footer>&copy; R Gagen 2023</footer>
+  </body>
+</html>

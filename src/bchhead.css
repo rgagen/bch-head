@@ -1,23 +1,36 @@
-body {
+* {
   font-family: Verdana;
 }
 
-.header {
+body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(auto, 1fr));
+  grid-template-areas: 
+    "header header"
+    "input output"
+    "footer footer";
+}
+
+header {
+  grid-area: header;
   padding: 10px;
   background: #ddd;
 }
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .input {
+  grid-area: input;
   background-color: #f1f1f1;
   padding: 20px;
 }
 
-.footer {
+.output {
+  grid-area: output;
+  background-color: #f7f7f7;
+  padding: 20px;
+}
+
+footer {
+  grid-area: footer;
   padding: 10px;
   text-align: right;
   background: #ddd;

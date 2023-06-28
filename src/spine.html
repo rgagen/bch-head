@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BCH Head - An BCH MR Head Protol Note Creater</title>
+    <link rel="stylesheet" href="bchhead.css" />
+    <script src="spine.js"></script>
+  </head>
+
+  <body>
+    <div class="header">
+      <h1>Spine reporter</h1>
+      <h5>Spine reporting tool.</h5>
+    </div>
+
+    <!-- Row -->
+    <div class="row">
+      <!-- Input -->
+      <div class="input">
+        <form id="motionSegment">
+          <section>
+            <label for="level">Motion Segment:</label>
+            <select id="level" name="level">
+              <option value="L1-L2">L1-L2</option>
+              <option value="L2-L3">L2-L3</option>
+              <option value="L3-L4">L3-L4</option>
+              <option value="L4-L5">L4-L5</option>
+              <option value="L5-S1">L5-S1</option>
+            </select>
+          </section>
+
+          <section>
+            <h6>Central canal:</h6>
+            <input type="radio" name="centralCanal" id="centralCanal:mild" value="centralCanal:mild" checked="checked">
+            <label for="centralCanal:mild">Mild</label>
+            <input type="radio" name="centralCanal" id="centralCanal:moderate" value="centralCanal:moderate">
+            <label for="centralCanal:moderate">Moderate</label>
+            <input type="radio" name="centralCanal" id="centralCanal:severe" value="centralCanal:severe">
+            <label for="centralCanal:severe">Severe</label>
+          </section>
+
+          <section>
+            <h6><em>Right</em> lateral recess:</h6>
+            <input type="radio" name="rightLateralRecess" id="rightLateralRecess:normal" value="rightLateralRecess:normal" checked="checked">
+            <label for="rightLateralRecess:normal">Normal</label>
+            <input type="radio" name="rightLateralRecess" id="rightLateralRecess:narrow" value="rightLateralRecess:narrow">
+            <label for="rightLateralRecess:narrow">Narrow</label>
+            <input type="radio" name="rightLateralRecess" id="rightLateralRecess:stenosed" value="rightLateralRecess:stenosed">
+            <label for="rightLateralRecess:stenosed">Stenosed</label>
+          </section>
+
+          <section>
+            <h6><em>Left</em> lateral recess:</h6>
+            <input type="radio" name="leftLateralRecess" id="leftLateralRecess:normal" value="leftLateralRecess:normal" checked="checked">
+            <label for="leftLateralRecess:normal">Normal</label>
+            <input type="radio" name="leftLateralRecess" id="leftLateralRecess:narrow" value="leftLateralRecess:narrow">
+            <label for="leftLateralRecess:narrow">Narrow</label>
+            <input type="radio" name="leftLateralRecess" id="leftLateralRecess:stenosed" value="leftLateralRecess:stenosed">
+            <label for="leftLateralRecess:stenosed">Stenosed</label>
+          </section>
+
+        </form>
+      </div>
+
+      <!-- Output -->
+      <div class="output"></div>
+    </div>
+    <div class="footer">&copy; R Gagen 2023</div>
+  </body>
+</html>
