@@ -1,10 +1,6 @@
-# gagen.io
+# BCH Head
 
 ## Description
-This is a personal project to develop a set of tools useful for radiology reporting and related tasks. It is not meant for general use.
+This is a personal project, designed to allow rapid protocol note creation for MRI heads via a web page, targeting my specific use case.
 ## Installation
 ```npm install```
-## Contributing
-No contributions are accepted.
-## License
-This code is purely for the use of the author. All other use is prohibited.

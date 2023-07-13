@@ -1,7 +1,7 @@
 {
-  "name": "gagen.io",
+  "name": "bch-head",
   "version": "1.0.0",
-  "description": "gagen.io website and all associated tools",
+  "description": "MRI Head Protocol Note Creator",
   "devDependencies": {
     "copyfiles": "^2.4.1",
     "serve": "^14.2.0",
@@ -16,8 +16,5 @@
     "url": "git+https://gitlab.com/rgagen/gagen.io.git"
   },
   "author": "Richard Gagen",
-  "bugs": {
-    "url": "https://gitlab.com/rgagen/gagen.io/issues"
-  },
   "homepage": "https://gagen.io"
 }
