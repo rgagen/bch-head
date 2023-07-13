@@ -95,11 +95,11 @@ async function stringDict(): Promise<Map<string, string>> {
 }
 
 function copyScannerInfo(): void {
-    const text = document.getElementById("scanner_info")!.innerText;
+    const text = document.getElementById("scanner_info")!.innerHTML;
     navigator.clipboard.writeText(text);
 }
 
 function copyProtocolInfo(): void {
-    const text = document.getElementById("protocol")!.innerText;
+    const text = document.getElementById("protocol")!.innerHTML;
     navigator.clipboard.writeText(text);
 }
