@@ -14,7 +14,7 @@ function date_string(data: Data): string {
 
 function updateScannerInfo(date: string, data: Data, dict: Map<string, string>) {
     const scanner_info = `${date} ${dict.get(data.magnet)} - `;
-    document.getElementById("scanner_info")!.innerHTML = scanner_info;
+    document.getElementById("scanner_info")!.value = scanner_info;
 }
 
 function updateProtocolInfo(date: string, data: Data, dict: Map<string, string>) {
@@ -31,7 +31,7 @@ function updateProtocolInfo(date: string, data: Data, dict: Map<string, string>)
         aa = aa + " nil";
     }
     const text = `${date}\n${brain}\n${spine}\n${aa}`;
-    document.getElementById("protocol")!.innerHTML = text;
+    document.getElementById("protocol")!.value = text;
 }
 
 class Data {
@@ -95,11 +95,11 @@ async function stringDict(): Promise<Map<string, string>> {
 }
 
 function copyScannerInfo(): void {
-    const text = document.getElementById("scanner_info")!.innerHTML;
+    const text = document.getElementById("scanner_info")!.value;
     navigator.clipboard.writeText(text);
 }
 
 function copyProtocolInfo(): void {
-    const text = document.getElementById("protocol")!.innerHTML;
+    const text = document.getElementById("protocol")!.value;
     navigator.clipboard.writeText(text);
 }
